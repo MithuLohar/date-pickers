@@ -32,6 +32,11 @@
       <h3>to >> <span>{{date}}</span></h3>
 
     </div>
+    <div class="col-md-6">
+      <form [formGroup]="formGroup">
+        <ngx-datetimePicker formControlName="date" [options]="options" [minDate]="today"> </ngx-datetimePicker>
+      </form>
+    </div>
   </div>
   <hr>
   <div class="row m-5">
@@ -70,7 +75,7 @@
 
 
   <div class="row m-5">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h1>
         owl-date-time
       </h1>
@@ -83,7 +88,7 @@
       <owl-date-time #dt2></owl-date-time>
     </div>
     <!-- <h4 style="color:#1857a4;">{{owl1}} {{owl2}}</h4> -->
-    <div class="col-md-4">
+    <div class="col-md-3">
       <h1>
         ngx-datetime-picker
       </h1>
@@ -91,7 +96,7 @@
       <h1>{{dateTimeExample}}</h1>
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
 
       <h1>
         dl-date-time-picker
@@ -99,6 +104,15 @@
       <dl-date-time-picker startView="day" maxView="year" minView="minute" [minuteStep]="2" [(ngModel)]="selectedDate">
       </dl-date-time-picker>
     </div>
+    <div class="col-md-3">
+      <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig" mode='daytime'></dp-date-picker>
+
+    </div>
+
   </div>
+
+</div>
+
+<div class="simple">
 
 </div>

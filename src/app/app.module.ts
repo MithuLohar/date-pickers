@@ -33,6 +33,8 @@ import {
 } from 'angular-bootstrap-datetimepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DateformateService } from './dateformate.service';
+import { DpDatePickerModule } from 'ng2-date-picker';
+import { DatetimePickerModule } from '@tchitos/datetime-picker';
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
@@ -86,6 +88,10 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
 
     DlDateTimeDateModule, // <--- Determines the data type of the model
     DlDateTimePickerModule,
+
+    DpDatePickerModule,
+
+    DatetimePickerModule,
   ],
   providers: [
     // {

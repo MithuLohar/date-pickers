@@ -15,6 +15,9 @@ import {
   MAT_DATE_FORMATS,
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
+import { DatePickerComponent, IDatePickerConfig } from 'ng2-date-picker';
+import { FormBuilder } from '@angular/forms';
+import { DatePickerOptions } from '@tchitos/datetime-picker';
 
 const moment = _moment;
 @Component({
@@ -23,6 +26,12 @@ const moment = _moment;
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  formGroup: any;
+  constructor(private fb: FormBuilder) {
+    this.formGroup = this.fb.group({
+      date: [new Date()],
+    });
+  }
   @ViewChild(NgxMatDatetimePicker)
   picker!: NgxMatDatetimePicker<any>;
   isValidMoment: boolean = false;
@@ -33,20 +42,30 @@ export class AppComponent implements OnInit {
   selectedMoment = new Date();
   myDatePickerFrom = new Date();
   myDatePickerTo = new Date();
-  ngOnInit(): void {
-    console.log(this.date);
-    let temp = moment().format('LL');
-    console.log(temp);
-  }
 
   dateTimeExample = new Date();
   disabled = false;
   showSpinners = true;
   showSeconds = true;
   disableMinute = false;
-  today = '';
+
   selectedDate = new Date();
   step = 1;
+  today = new Date();
+  datePickerConfig: IDatePickerConfig = {
+    format: 'HH:mm',
+    showTwentyFourHours: true,
+    minutesInterval: 15,
+  };
+  options: DatePickerOptions = {
+    format: 'dd/MM/yyyy',
+    enableHour: true,
+  };
+  ngOnInit(): void {
+    console.log(this.date);
+    let temp = moment().format('LL');
+    console.log(temp);
+  }
   ngAfterViewInit() {}
 
   change() {}
