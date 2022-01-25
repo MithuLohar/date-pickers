@@ -1,0 +1,104 @@
+<div class="container m-5">
+  <div class="row m-5">
+    <div class="col-md-6">
+      <h1>
+        Angular material-datetimeipicker
+      </h1>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Moment.js datepicker</mat-label>
+        <input matInput [matDatepicker]="dp" [(ngModel)]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field> -->
+      <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" [(ngModel)]="date"
+          (ngModelChange)="addEvent(date,$event)" />
+        <mat-datepicker-toggle matPrefix [for]="$any(picker)">
+        </mat-datepicker-toggle>
+
+        <ngx-mat-datetime-picker #picker [enableMeridian]="true">
+
+          <ng-template>
+
+            Done
+
+          </ng-template>
+
+        </ngx-mat-datetime-picker>
+      </mat-form-field>
+      <input type="text" class="form-control" [(ngModel)]="processedTime" placeholder="Enter Date">
+      <mat-datepicker-toggle matPrefix [for]="$any(picker)">
+      </mat-datepicker-toggle>
+      <h3>to >> <span>{{date}}</span></h3>
+
+    </div>
+  </div>
+  <hr>
+  <div class="row m-5">
+    <div class="col-md-6">
+      <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="From date & time"
+          [(ngModel)]="myDatePickerFrom">
+
+        <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
+
+        <ngx-mat-datetime-picker #pickerFrom [enableMeridian]="true" [hideTime]="true">
+
+          <ng-template>
+            <mat-icon>check_circle_outline</mat-icon>
+          </ng-template>
+        </ngx-mat-datetime-picker>
+      </mat-form-field>
+      <h3>from >> <span>{{myDatePickerFrom}}</span></h3>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="pickerTo" placeholder="To date & time" [(ngModel)]="myDatePickerTo"
+          [min]="myDatePickerFrom">
+
+        <mat-datepicker-toggle matSuffix [for]="$any(pickerTo)"></mat-datepicker-toggle>
+
+        <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
+      </mat-form-field>
+      <h3>to >> <span>{{myDatePickerTo}}</span></h3>
+    </div>
+
+
+
+
+  </div>
+
+
+  <div class="row m-5">
+    <div class="col-md-4">
+      <h1>
+        owl-date-time
+      </h1>
+      <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time">
+      <owl-date-time #dt1></owl-date-time>
+      <input [owlDateTime]="dt2" placeholder="Date Time" [owlDateTimeTrigger]="dt2">
+      <span [owlDateTimeTrigger]="dt2" pickerMode="popup">
+        <!-- <i class="fa fa-calendar"></i> -->
+      </span>
+      <owl-date-time #dt2></owl-date-time>
+    </div>
+    <!-- <h4 style="color:#1857a4;">{{owl1}} {{owl2}}</h4> -->
+    <div class="col-md-4">
+      <h1>
+        ngx-datetime-picker
+      </h1>
+      <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
+      <h1>{{dateTimeExample}}</h1>
+
+    </div>
+    <div class="col-md-4">
+
+      <h1>
+        dl-date-time-picker
+      </h1>
+      <dl-date-time-picker startView="day" maxView="year" minView="minute" [minuteStep]="2" [(ngModel)]="selectedDate">
+      </dl-date-time-picker>
+    </div>
+  </div>
+
+</div>

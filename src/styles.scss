@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~open-iconic/font/css/open-iconic-bootstrap.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.cdk-overlay-container {
+  ngx-mat-datetime-content {
+    ng-mat-calender {
+      .mat-calender-content {
+        ngx-mat-month-view {
+          .mat-calender-table {
+            .ngx-mat-calender-body {
+              .mat-calender-body-label {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .actions {
+      justify-content: center;
+      align-items: center;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
