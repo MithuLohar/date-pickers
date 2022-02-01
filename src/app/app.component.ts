@@ -18,7 +18,7 @@ import {
 import { DatePickerComponent, IDatePickerConfig } from 'ng2-date-picker';
 import { FormBuilder } from '@angular/forms';
 import { DatePickerOptions } from '@tchitos/datetime-picker';
-
+import * as localUS from 'date-fns/locale/en-US';
 const moment = _moment;
 @Component({
   selector: 'app-root',
@@ -26,7 +26,6 @@ const moment = _moment;
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  formGroup: any;
   constructor(private fb: FormBuilder) {
     this.formGroup = this.fb.group({
       date: [new Date()],
@@ -34,6 +33,9 @@ export class AppComponent implements OnInit {
   }
   @ViewChild(NgxMatDatetimePicker)
   picker!: NgxMatDatetimePicker<any>;
+  formGroup: any;
+  group: any;
+  start: any;
   isValidMoment: boolean = false;
   title = 'date-pickers';
   processedTime: any;
@@ -60,6 +62,8 @@ export class AppComponent implements OnInit {
   options: DatePickerOptions = {
     format: 'dd/MM/yyyy',
     enableHour: true,
+    locale: localUS.default,
+    enableKeyboard: true,
   };
   ngOnInit(): void {
     console.log(this.date);
@@ -75,13 +79,6 @@ export class AppComponent implements OnInit {
   selYear!: string;
 
   addEvent(type: any, event: NgxMatDatetimeInput<Date>) {
-    // let d = this.date;
-    // this.processedTime = `${d.getDate().toString().padStart(2, '0')}-${(
-    //   d.getMonth() + 1
-    // )
-    //   .toString()
-    //   .padStart(2, '0')}-${d.getFullYear()}`;
-    // console.log(this.processedTime);
     console.log(this.date.toString());
   }
 }

@@ -4,12 +4,7 @@
       <h1>
         Angular material-datetimeipicker
       </h1>
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>Moment.js datepicker</mat-label>
-        <input matInput [matDatepicker]="dp" [(ngModel)]="date">
-        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-        <mat-datepicker #dp></mat-datepicker>
-      </mat-form-field> -->
+
       <mat-form-field>
         <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" [(ngModel)]="date"
           (ngModelChange)="addEvent(date,$event)" />
@@ -26,20 +21,84 @@
 
         </ngx-mat-datetime-picker>
       </mat-form-field>
-      <input type="text" class="form-control" [(ngModel)]="processedTime" placeholder="Enter Date">
-      <mat-datepicker-toggle matPrefix [for]="$any(picker)">
-      </mat-datepicker-toggle>
-      <h3>to >> <span>{{date}}</span></h3>
+      <details>
+        <summary class="advantages">
+          advantages
+        </summary>
+        <ul>
+          <li>
+            manual input for date
+          </li>
+          <li>
+            controll over date formate
+          </li>
+          <li>
+            change year without date change
+          </li>
+          <li>
+            provide diffrent type window for selection
+          </li>
+          <li>
+            option for time picker /date picker
+          </li>
+          <li>
+            support (last update 2 months ago)
+          </li>
+        </ul>
+      </details>
+      <details>
+        <summary>
+          disadvantages
+        </summary>
+        <li>
+          big boiler plate
+        </li>
+        <li>
+          can't handler date object , need adaptor
+        </li>
+      </details>
 
     </div>
     <div class="col-md-6">
+      <h1>@tchitos/datetime-picker</h1>
       <form [formGroup]="formGroup">
-        <ngx-datetimePicker formControlName="date" [options]="options" [minDate]="today"> </ngx-datetimePicker>
+        <ngx-datetimePicker formControlName="date" [options]="options"> </ngx-datetimePicker>
       </form>
+      <details>
+        <summary class="advantages">
+          advantages
+        </summary>
+        <ul>
+          <li>
+            easy configuration
+          </li>
+          <li>
+            multi-lingual support
+          </li>
+          <li>
+            custom validation
+          </li>
+          <li>
+            only date option available
+          </li>
+        </ul>
+
+      </details>
+      <details>
+        <summary>
+          disadvantages
+        </summary>
+        <ul>
+          <li>
+            small community
+          </li>
+        </ul>
+
+      </details>
     </div>
   </div>
   <hr>
-  <div class="row m-5">
+  <!-- <div class="row m-5">
     <div class="col-md-6">
       <mat-form-field>
         <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="From date & time"
@@ -71,11 +130,11 @@
 
 
 
-  </div>
+  </div> -->
 
 
   <div class="row m-5">
-    <div class="col-md-3">
+    <div class="col-md-6">
       <h1>
         owl-date-time
       </h1>
@@ -86,33 +145,161 @@
         <!-- <i class="fa fa-calendar"></i> -->
       </span>
       <owl-date-time #dt2></owl-date-time>
+
+      <details>
+        <summary class="advantages">
+          advantages
+        </summary>
+        <ul>
+          <li>
+            minimal configuration
+          </li>
+          <li>
+            provide diffrent type window for selection
+          </li>
+          <li>
+            option for time picker /date picker
+          </li>
+          <li>
+            owl time picker being used in our project
+          </li>
+
+        </ul>
+      </details>
+      <details>
+        <summary>
+          disadvantages
+        </summary>
+        <li>
+          less support (last updated 3 yrs ago)
+        </li>
+
+      </details>
     </div>
     <!-- <h4 style="color:#1857a4;">{{owl1}} {{owl2}}</h4> -->
-    <div class="col-md-3">
+    <div class="col-md-6">
       <h1>
         ngx-datetime-picker
       </h1>
       <ngx-datetime-picker [(selectedDateTime)]="dateTimeExample"></ngx-datetime-picker>
-      <h1>{{dateTimeExample}}</h1>
+      <details>
+        <summary class="advantages">
+          advantages
+        </summary>
+        <ul>
+          <li>
+            one line implementation
+          </li>
+
+
+        </ul>
+      </details>
+      <details>
+        <summary>
+          disadvantages
+        </summary>
+        <li>
+          stepper of 5 for min selection , no controll
+        </li>
+        <li>
+          closes on date selection
+        </li>
+        <li>
+          less support (last updated 2 yrs ago)
+        </li>
+
+      </details>
 
     </div>
-    <div class="col-md-3">
 
-      <h1>
-        dl-date-time-picker
-      </h1>
-      <dl-date-time-picker startView="day" maxView="year" minView="minute" [minuteStep]="2" [(ngModel)]="selectedDate">
-      </dl-date-time-picker>
-    </div>
-    <div class="col-md-3">
-      <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig" mode='daytime'></dp-date-picker>
-
-    </div>
 
   </div>
+  <hr>
+  <div class="row m-5">
+    <div class="col-md-6">
+      <h1>@mat-datetimepicker/core</h1>
+      <mat-form-field>
+        <mat-placeholder>Start DateTime</mat-placeholder>
+        <mat-datetimepicker-toggle [for]="datetimePicker" matSuffix></mat-datetimepicker-toggle>
+        <mat-datetimepicker ariaPrevYearLabel ariaNextYearLabel #datetimePicker type="datetime" [openOnFocus]="true"
+          [timeInterval]="5">
+        </mat-datetimepicker>
+        <input matInput [(ngModel)]="start" [matDatetimepicker]="datetimePicker" required autocomplete="false" />
+      </mat-form-field>
 
-</div>
+      <details>
+        <summary class="advantages">advantages</summary>
+        <ul>
+          <li>
+            support
+          </li>
+          <li>
+            better UI
+          </li>
+          <li>
+            input for date and time
+          </li>
+        </ul>
+      </details>
+      <details>
+        <summary>disadvantages</summary>
+        <ul>
+          <li>
+            every date selection required time selection
+          </li>
+          <li>
+            Adaptor required
+          </li>
+        </ul>
+      </details>
+    </div>
+    <!-- <div class="col-md-6">
+      <h1>Angular bootstrap date time picker</h1>
+      <dl-date-time-picker startView="day" maxView="year" minView="minute" [minuteStep]="2" [(ngModel)]="selectedDate">
+      </dl-date-time-picker>
+      <details>
+        <summary class="advantages">
+          advantages
+        </summary>
+        <ul>
+          <li>
+            one line implementation
+          </li>
 
-<div class="simple">
 
+        </ul>
+      </details>
+      <details>
+        <summary>
+          disadvantages
+        </summary>
+        <li>
+          inline
+        </li>
+        <li>
+          same window for both date and time selection
+        </li>
+        <li>
+          less support (last updated 2 yrs ago)
+        </li>
+
+      </details>
+    </div> -->
+
+    <div class="col-md-6">
+      <h1>ng2-date-picker</h1>
+      <dp-date-picker [(ngModel)]="selectedDate" [config]="datePickerConfig" mode='daytime'></dp-date-picker>
+
+      <details>
+        <summary class="advantages">advantages</summary>
+      </details>
+      <details>
+        <summary>disadvantages</summary>
+        <ul>
+          <li>styles not gatting applies</li>
+          <li>date is not showing</li>
+        </ul>
+      </details>
+    </div>
+  </div>
 </div>

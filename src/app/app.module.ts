@@ -35,6 +35,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { DateformateService } from './dateformate.service';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { DatetimePickerModule } from '@tchitos/datetime-picker';
+import {
+  MatDatetimepickerModule,
+  MatNativeDatetimeModule,
+  MAT_DATETIME_FORMATS,
+} from '@mat-datetimepicker/core';
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
@@ -48,17 +53,60 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   },
 };
 
-// export const MY_FORMATS = {
-//   parse: {
-//     dateInput: 'DD-MM-YYYY',
-//   },
-//   display: {
-//     dateInput: 'DD MMM, YYYY',
-//     monthYearLabel: 'MMMMYYYY',
-//     dateA11yLabel: 'L',
-//     monthYearA11yLabel: 'MMMM YYYY',
-//   },
-// };
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD-MM-YYYY',
+  },
+  display: {
+    dateInput: 'DD MMM, YYYY',
+    monthYearLabel: 'MMMMYYYY',
+    dateA11yLabel: 'L',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
+const MAT_DATETIMEPICKER_FORMAT = {
+  parse: {},
+  display: {
+    dateInput: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    },
+    monthInput: {
+      month: 'long',
+    },
+    datetimeInput: {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+    },
+    timeInput: {
+      hour: '2-digit',
+      minute: '2-digit',
+    },
+    monthYearLabel: {
+      year: 'numeric',
+      month: 'short',
+    },
+    dateA11yLabel: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    },
+    monthYearA11yLabel: {
+      year: 'numeric',
+      month: 'long',
+    },
+    popupHeaderDateLabel: {
+      weekday: 'short',
+      month: 'short',
+      day: '2-digit',
+    },
+  },
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -71,6 +119,8 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
+    MatDatetimepickerModule,
+    MatNativeDatetimeModule,
 
     FormsModule,
     ReactiveFormsModule,
@@ -94,14 +144,18 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     DatetimePickerModule,
   ],
   providers: [
-    // {
-    //   provide: NgxMatDateAdapter,
-    //   useClass: DateformateService,
-    //   deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY],
-    // },
+    /* {
+      provide: NgxMatDateAdapter,
+      useClass: DateformateService,
+      deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS_FACTORY],
+    }, */
     {
       provide: NGX_MAT_DATE_FORMATS,
       useValue: CUSTOM_DATE_FORMATS,
+    },
+    {
+      provide: MAT_DATETIME_FORMATS,
+      useValue: MAT_DATETIMEPICKER_FORMAT,
     },
   ],
   bootstrap: [AppComponent],
